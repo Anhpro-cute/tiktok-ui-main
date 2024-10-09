@@ -1,0 +1,119 @@
+@import 'normalize.css';
+
+:root {
+    --primary: #fe2c55;
+    --black: #000;
+    --white: #fff;
+    --text-color: #161823;
+
+    // Sửa lỗi và hoàn thiện phần Header #1
+    // Sửa phông chữ trong ô tìm kiếm
+    --font-family: 'ProximaNova', sans-serif;
+
+    // Default layout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --default-layout-horizontal-spacer: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    color: var(--text-color);
+    // Xử lý thanh cuộn trong menu đa cấp, khi có nhiều content
+    // Thanh cuộn có thể hiển thị trên nội dung mà không làm thay đổi kích thước phần tử
+    overflow-y: overlay;
+}
+
+// Scrollbar CSS
+// Thêm style cho overlay cho thanh cuộn body
+// * Các kiểu được định nghĩa cho thanh cuộn (scrollbar) sẽ được áp dụng cho tất cả các phần tử trên trang
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+// Fonts emmbeded
+// Khi bạn định nghĩa nhiều quy tắc @font-face cho cùng một font-family với các thuộc tính font-weight khác nhau,
+// trình duyệt sẽ tự động chọn font phù hợp dựa trên giá trị font-weight mà bạn đã chỉ định trong CSS.
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: SofiaPro;
+    src: url('/assets/fonts/sofiapro-bold.woff');
+    font-weight: 700;
+}
+
+// Custom tippy tooltip
+body {
+    //hình như sau này k cần dùng
+    .tippy-box {
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        background-color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-content {
+        padding: 8px 9px;
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
+}
